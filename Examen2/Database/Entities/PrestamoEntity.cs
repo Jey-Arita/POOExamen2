@@ -16,7 +16,7 @@ namespace Examen2.Database.Entities
         public DateTime Fecha { get; set; }
 
         [Column("duracion_prestamo")]
-        public float DuracionPrestamo { get; set; }
+        public int DuracionPrestamo { get; set; }
 
         [Column("interes")]
         public float Interes { get; set; }
@@ -28,6 +28,12 @@ namespace Examen2.Database.Entities
         public float Cuotas { get; set; }
 
         [Column("capital_total")]
-        public float CapitalTotal { get; set; }
+        public float Saldo { get; set; }
+
+        [Required]
+        [Column("id_autor")]
+        public Guid IdCliente { get; set; }
+        [ForeignKey(nameof(IdCliente))]
+        public virtual ClienteEntity Cliente { get; set; }
     }
 }

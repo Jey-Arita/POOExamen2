@@ -1,24 +1,21 @@
-﻿using Examen2.Database;
+﻿using AutoMapper;
+using Examen2.Database.Entities;
+using Examen2.Dtos.Clientes;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 namespace Examen2.Helpers
 {
-    public class AutoMapperProfile
+    public class AutoMapperProfile : Profile
     {
-        public static async Task LoadDataAsync(
-           ExamenContext context,
-           ILoggerFactory loggerFactory
-           )
+        public AutoMapperProfile()
         {
-            try
-            {
-                //cargar las los servicios e interfaces, osea hacer intercambios
-            }
-            catch (Exception e)
-            {
-                var logger = loggerFactory.CreateLogger<ExamenSeeder>();
-                logger.LogError(e, "Error inicializando la data del API");
-            }
+            MapForClientes();
+        }
+
+        private void MapForClientes()
+        {
+            CreateMap<ClienteEntity, ClienteDto>();
+
         }
     }
 }

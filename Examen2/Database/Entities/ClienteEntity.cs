@@ -8,8 +8,8 @@ namespace Examen2.Database.Entities
     {
         [Key]
         [Required]
-        [Column("id")]
-        public Guid Id { get; set; }
+        [Column("id_cliente")]
+        public Guid IdCliente { get; set; }
 
         [StringLength(100)]
         [Column("nombre")]
@@ -20,11 +20,11 @@ namespace Examen2.Database.Entities
         public string NumeroIdentidad { get; set; }
 
 
-        [Column("monto_prestamo")]
-        public float MontoPrestamo { get; set; }
+        //[Column("monto_prestamo")]
+        //public float MontoPrestamo { get; set; }
 
-        [Column("plan_amortizacion")]
-        public float PlanAmortizacion { get; set; }
+        //[Column("plan_amortizacion")]
+        //public float PlanAmortizacion { get; set; }
 
     }
 }
