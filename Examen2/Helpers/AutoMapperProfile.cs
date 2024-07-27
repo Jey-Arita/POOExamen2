@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Examen2.Database.Entities;
 using Examen2.Dtos.Clientes;
+using Examen2.Dtos.InfoPrestamos;
+using Examen2.Dtos.Prestamos;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 namespace Examen2.Helpers
@@ -14,7 +16,13 @@ namespace Examen2.Helpers
 
         private void MapForClientes()
         {
-            CreateMap<ClienteEntity, ClienteDto>();
+            CreateMap<CreatePrestamoDto, PrestamoEntity>();
+
+            CreateMap<PrestamoEntity, PrestamoDto>();
+
+            CreateMap<InfoPrestamosDto, InfoPrestamoEntity>()
+                .ForMember(dest => dest.IdAmortizacion, opt => opt.Ignore());
+            CreateMap<InfoPrestamoEntity, InfoPrestamosDto>();
 
         }
     }

@@ -1,0 +1,14 @@
+[
+  {
+    "IdAmortizacion": "e5b1f915-7d4e-4f2e-b4a5-8f2fc2d4b5f1",
+    "IdPrestamo": "a7b1c8d9-4e5f-4b6f-b7c8-2d3e4f5b6c7d",
+    "NoCuota": 1,
+    "Fecha": "2024-08-01T00:00:00Z",
+    "Dias": 30,
+    "Interes": 10.50,
+    "Principal": 100.00,
+    "CuotaSinSVSD": 110.00,
+    "CuotaConSVSD": 115.00,
+    "SaldoPrincipal": 900.00
+  }
+]

@@ -2,6 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Examen2.Database;
 using Examen2.Helpers;
+using Examen2.Services.Interfaces;
+using Examen2.Dtos.Prestamos;
+using Examen2.Services;
 
 namespace Examen2
 {
@@ -24,7 +27,7 @@ namespace Examen2
             services.AddDbContext<ExamenContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //Llamos los servicios
-            //services.AddTransient<ILibrosServices, LibrosServices>();
+            services.AddTransient<IPrestamoService, PrestamoService>();
 
             // Configurar AutoMapper
             services.AddAutoMapper(typeof(AutoMapperProfile));

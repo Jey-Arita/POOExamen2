@@ -1,11 +1,10 @@
 [
   {
-    "Idprestamo": "2d2b9034-92a2-4089-982e-a6af9885d23f",
-    "Fecha": "1925-04-10T00:00:00",
-    "DuracionPrestamo": "8",
-    "Interes": "15.00",
-    "Abono": "1.00",
-    "Cuotas": "4",
-    "Saldo": "99"
+    "IdPrestamo": "a7b1c8d9-4e5f-4b6f-b7c8-2d3e4f5b6c7d",
+    "Monto": 15000.00,
+    "Interes": 5.75,
+    "Plazo": 12,
+    "FechaDesembolso": "2024-07-26T00:00:00Z",
+    "IdCliente": "f0b912fe-2342-40f8-9e8d-6fba9f2d3b02"
   }
 ]

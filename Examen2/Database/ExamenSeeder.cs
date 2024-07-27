@@ -13,8 +13,9 @@ namespace Examen2.Database
         {
             try
             {
+                await LoadClienteAsync(loggerFactory, context);
                 await LoadPrestamoAsync(loggerFactory, context);
-                await LoadClienteAsync(loggerFactory, context);             
+                await LoadInfoPrestamosAsync(loggerFactory, context);
             }
             catch (Exception e)
             {
@@ -53,6 +54,26 @@ namespace Examen2.Database
                 if (!await _context.Prestamos.AnyAsync())
                 {
                     _context.Prestamos.AddRange(prestamos);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            catch (Exception e)
+            {
+                var logger = loggerFactory.CreateLogger<ExamenContext>();
+                logger.LogError(e, "Error al ejecutar el Seed de prestamos.");
+            }
+        }
+
+        private static async Task LoadInfoPrestamosAsync(ILoggerFactory loggerFactory, ExamenContext _context)
+        {
+            try
+            {
+                var jsonfilePath = "SeedData/infoprestamos.json";
+                var jsonnContent = await File.ReadAllTextAsync(jsonfilePath);
+                var prestamos = JsonConvert.DeserializeObject<List<InfoPrestamoEntity>>(jsonnContent);
+                if (!await _context.Prestamos.AnyAsync())
+                {
+                    _context.Prestamos.AddRange((IEnumerable<PrestamoEntity>)prestamos);
                     await _context.SaveChangesAsync();
                 }
             }
