@@ -62,7 +62,7 @@ namespace Examen2.Services
                     {
                         StatusCode = 201,
                         Status = true,
-                        Message = "Préstamo y plan de amortización creados correctamente.",
+                        Message = "Prestamo y plan de amortizacion creados correctamente.",
                         Data = new PrestamoDto
                         {
                             IdPrestamo = prestamoEntity.IdPrestamo,

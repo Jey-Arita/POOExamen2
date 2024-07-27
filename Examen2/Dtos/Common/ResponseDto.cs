@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using Examen2.Dtos.InfoPrestamos;
+using System.Text.Json.Serialization;
 
 namespace Examen2.Dtos.Common
 {
