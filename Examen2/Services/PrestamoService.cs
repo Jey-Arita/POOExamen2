@@ -14,11 +14,13 @@ namespace Examen2.Services
     {
         private readonly ExamenContext _context;
         private readonly IMapper _mapper;
+        private readonly ILogger<PrestamoService> _logger;
 
-        public PrestamoService(ExamenContext context, IMapper mapper)
+        public PrestamoService(ExamenContext context, IMapper mapper, ILogger<PrestamoService> logger)
         {
-            _context = context;
-            _mapper = mapper;
+            this._context = context;
+            this._mapper = mapper;
+            this._logger = logger;
         }
 
         public async Task<ResponseDto<PrestamoDto>> CrearPrestamoAsync(CreatePrestamoDto dto)
@@ -72,15 +74,16 @@ namespace Examen2.Services
                         }
                     };
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
                     await transaction.RollbackAsync();
+                    _logger.LogError(e, "Error al crear la publicacion");
                     return new ResponseDto<PrestamoDto>
                     {
                         StatusCode = 500,
                         Status = false,
-                        Message = $"Error al crear el préstamo: {ex.Message}"
-                    };
+                        Message = "Se produjo un error al crear la publicacion"
+                    }; ;
                 }
             }
         }

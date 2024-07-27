@@ -5,7 +5,17 @@ meta {
 }
 
 post {
-  url: {{PATH}}
-  body: none
+  url: https://localhost:7220/api/prestamos
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "Monto": 100000.00,
+    "Interes": 0.03,
+    "Plazo": 24,
+    "FechaDesembolso": "2024-07-26T00:00:00Z",
+    "IdCliente": "f0b912fe-2342-40f8-9e8d-6fba9f2d3b02"
+  }
 }
